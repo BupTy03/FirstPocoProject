@@ -13,6 +13,7 @@ endif()
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_cmake_run(
         REQUIRES Poco/1.10.1@pocoproject/stable
+                 nlohmann_json/3.9.1
         BUILD missing)
 conan_define_targets()
 
@@ -25,4 +26,4 @@ add_executable(PocoFirstProject
         SimpleEchoServer.cpp SimpleEchoServer.h
         SimpleRequestHandler.cpp SimpleRequestHandler.h)
 
-target_link_libraries(PocoFirstProject PRIVATE CONAN_PKG::Poco)
+target_link_libraries(PocoFirstProject PRIVATE CONAN_PKG::Poco CONAN_PKG::nlohmann_json)
